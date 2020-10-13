@@ -1,0 +1,22 @@
+@import '../utilities/colors';
+
+.board-container-main {
+    font-weight: 600;
+    > div {
+        margin-top: 5rem;
+    }
+
+    input {
+        border: 0;
+        width: 100%;
+        font-weight: inherit;
+        font-style: inherit;
+        color: inherit;
+        &:focus {
+            outline: none;
+        }
+        &:hover {
+            color: inherit;
+        }
+    }
+}

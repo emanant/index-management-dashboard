@@ -1,0 +1,68 @@
+@import '../utilities/colors';
+
+.board-header {
+    color: $color-gray;
+    margin-bottom: 0;
+    :hover {
+        color: $color-primary;
+    }
+    svg {
+        color: $color-disabled;
+    }
+}
+.board-sub-header {
+    color: $color-secondary;
+    h5 {
+        color: $color-secondary;
+        margin-bottom: 0 !important;
+    }
+    span {
+        color: $color-gray;
+        font-size: small;
+    }
+}
+
+.board-row {
+    .button-dragger {
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        margin: auto;
+        color: $color-gray;
+        font-weight: 800;
+        &:focus {
+            outline: none;
+        }
+    }
+    :hover {
+        color: $color-gray;
+    }
+    .col-icons {
+        :hover {
+            color: $color-primary;
+        }
+        color: $color-disabled;
+    }
+    .col-separator {
+        background-color: $color-disabled;
+        height: 2.6em;
+        width: 2.6em;
+        height: 2.6em;
+        padding-right: 0;
+    }
+
+    @for $i from 1 through 3 {
+        .indent-#{$i} {
+            margin-left: #{$i * 1.5}rem;
+        }
+    }
+    .col-text {
+        font-weight: 700;
+    }
+    @for $i from 0 through 3 {
+        .indent-text-#{$i} {
+            // margin-left: #{$i * 1.5}rem;
+            color: nth($color-list, $i + 1);
+        }
+    }
+}
