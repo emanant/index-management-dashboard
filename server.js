@@ -22,9 +22,6 @@ app.options('*', cors());
 
 //Productoin build
 app.use(express.static(path.join(__dirname, './demoapp-toddle/build')));
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './demoapp-toddle/build/index.html'));
-});
 
 app.post('/writejson', async (req, res, next) => {
     try {
@@ -52,6 +49,10 @@ app.get('/readjson', async (req, res, next) => {
     } catch (err) {
         throw new Error(`File reading failed because of ${err}`);
     }
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './demoapp-toddle/build/index.html'));
 });
 
 app.use((req, res, next) => {
