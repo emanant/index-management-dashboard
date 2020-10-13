@@ -8,7 +8,8 @@ const path = require('path');
 const filePath = 'data.json';
 
 const app = express();
-const port = 5050;
+// const port = 5050;
+app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
 app.use(morgan('dev'));
@@ -59,4 +60,9 @@ app.use((req, res, next) => {
     res.status(404).send({ message: 'Could not find the specified route you requested!' });
 });
 
-app.listen(port, () => console.log(`listening on port ${port}`));
+// app.listen(port, () => console.log(`listening on port ${port}`));
+
+// Start node server
+app.listen(app.get('port'), function () {
+    console.log('Node server is running on port ' + app.get('port'));
+});
